@@ -1,0 +1,9 @@
+/*
+ * AUTOR: ALAN GABRIEL VEGA TINJACA
+ * CARRERA: ING. DE SISTEMAS
+ * PROFESORA: DILSA ENITH TRIANA MARTINEZ
+ * GUIA 1 / ACTIVIDAD 2 
+ */
+module Actvidad2 {
+	requires java.desktop;
+}

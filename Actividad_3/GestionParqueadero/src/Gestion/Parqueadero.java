@@ -6,7 +6,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class Parqueadero {
-	private List<Vehiculo> vehiculos;
+    private List<Vehiculo> vehiculos;
     private List<Vehiculo> historial;
 
     private static final double Tarifa_AUTOMOVIL = 2000; 
@@ -24,7 +24,15 @@ public class Parqueadero {
         System.out.println("Vehiculo registrado: " + vehiculo.getPlaca());
     }
 
-    
+     private Vehiculo buscarVehiculoPorPlaca(String placa) {
+        for (Vehiculo vehiculo : vehiculos) {
+            if (vehiculo.getPlaca().equals(placa)) {
+                return vehiculo;
+            }
+        }
+        return null;
+    }
+	
     public double registrarSalida(String placa) {
         Vehiculo vehiculo = buscarVehiculoPorPlaca(placa);
         if (vehiculo == null) {
@@ -39,22 +47,13 @@ public class Parqueadero {
         System.out.println("Vehiculo con placa " + vehiculo.getPlaca() + " ha salido. Costo total: $" + costoTotal);
         return costoTotal;
     }
-
-    private Vehiculo buscarVehiculoPorPlaca(String placa) {
-        for (Vehiculo vehiculo : vehiculos) {
-            if (vehiculo.getPlaca().equals(placa)) {
-                return vehiculo;
-            }
-        }
-        return null;
-    }
  
     private double calcularCosto(Vehiculo vehiculo) {
         long horas = Duration.between(vehiculo.getHoraEntrada(), vehiculo.getHoraSalida()).toHours();
         if (Duration.between(vehiculo.getHoraEntrada(), vehiculo.getHoraSalida()).toMinutesPart() > 0) {
             horas++;
         }
-
+	    
         double tarifa = 0;
         switch (vehiculo.getTipo()) {
             case "Automovil":

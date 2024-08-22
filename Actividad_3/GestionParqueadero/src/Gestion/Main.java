@@ -4,11 +4,11 @@ import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Main {
-	private static Parqueadero parqueadero = new Parqueadero();
+    private static Parqueadero parqueadero = new Parqueadero();
 
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-        int opcion;
+    public static void main(String[] args) {
+	Scanner scanner = new Scanner(System.in);
+	int opcion;
         do {
             mostrarMenu();
             opcion = scanner.nextInt();
